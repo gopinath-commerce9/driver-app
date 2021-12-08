@@ -1,0 +1,82 @@
+ion-content.delivery-login-page-content {
+    --background: #FFF;
+    ion-list.delivery-login-form-section {
+        --background: transparent;
+        background: transparent;
+        margin-top: 5%;
+        padding: 15px 25px;
+        form.delivery-login-form-container {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 10%;
+            padding: 25px;
+            .sc-ion-input-md-h {
+                padding: 0;
+            }
+            ion-input{
+                --padding-top: 0;
+            }
+            .input-wrapper{
+                height: 42px;
+            }
+            ion-label.delivery-login-form-header-section {
+                border: #707070;
+                color: var(--ion-background-color-dark-app-custom);
+                display: block;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            ion-label.delivery-login-form-header-sub-section {
+                border: #707070;
+                color: #676767;
+                display: block;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                margin-bottom: 5%;
+                text-align: center;
+            }
+            ion-item.form-input-section {
+                height: 42px;
+                margin-top: 15px;
+                .item-native {
+                    min-height: auto !important;
+                }
+                ion-input.delivery-login-form-input-control {
+                    --placeholder-color: #676767;
+                    border-bottom: 2px solid var(--ion-background-color-dark-app-custom);
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 16px;
+                    font-weight: normal;
+                }
+            }
+            div.validation-errors {
+                color: red;
+                font-size: 15px;
+                padding-top: 5px !important;
+                padding-left: 15px;
+            }
+            div.delivery-login-form-input-buttons-section {
+                margin-top: 20px;
+                --border-radius: 20px;
+                --background: transparent;
+                overflow: hidden;
+                ion-button {
+                    --background: var(--ion-background-color-dark-app-custom);
+                    border-radius: 1px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    height: 42px;
+                    margin-left: 10%;
+                    margin-right: 10%;
+                    text-transform: uppercase;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

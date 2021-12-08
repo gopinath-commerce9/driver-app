@@ -1,0 +1,49 @@
+`<ion-header class="delivery-customer-locator-page-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img [src]="titlebarIcon">
+      <span>{{pageTitle}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="delivery-customer-locator-page-content" fullscreen>
+
+  <div *ngIf="((currentOrder !== undefined) && (currentOrder !== null))">
+
+    <div class="delivery-customer-action-container">
+      <ion-button class="customer-close-btn" shape="round" fill="clear" size="default" (click)="locatorClose()">
+        <ion-label>Close</ion-label>
+      </ion-button>
+      <ion-button class="customer-confirmation-btn" shape="round" fill="clear" size="default" *ngIf="isOrderDelivery()" (click)="deliveredOrder(currentOrder)">
+        <ion-label>Delivered</ion-label>
+      </ion-button>
+      <ion-button class="customer-cancelation-btn" shape="round" fill="clear" size="default" *ngIf="isOrderDelivery()" (click)="canceledOrder(currentOrder)">
+        <ion-label>Canceled</ion-label>
+      </ion-button>
+    </div>
+  
+    <div class="delivery-customer-map-container">
+      <ion-card class="customer-map-direction-panel-section">
+        <ion-card-content>
+          <div #deliveryLocatorDirectionsPanel></div>
+        </ion-card-content>
+      </ion-card>
+      <div #deliveryLocatorMap id="deliveryLocatorMap"></div>
+    </div>
+
+  </div>
+
+  <ion-card class="delivery-customer-locator-page-empty-container" *ngIf="((currentOrder === undefined) || (currentOrder === null))">
+    <ion-card-content>
+      <span class="ion-text-wrap ion-text-center no-order-content">No details found on the requested Delivery Order.</span>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>`

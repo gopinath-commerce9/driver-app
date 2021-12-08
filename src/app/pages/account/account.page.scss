@@ -1,0 +1,217 @@
+ion-header.delivery-account-page-header {
+    ion-toolbar{
+        --background: var(--ion-background-color-app-custom);
+        ion-buttons {
+            ion-back-button {
+                color: #fff;
+            }
+            ion-menu-button {
+                color: #fff;
+            }
+        }
+        ion-title {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            img {
+                background-color: #fff;
+                display: inline-block;
+                height: 25px;
+                vertical-align: middle;
+                width: 25px;
+            }
+            span{
+                display: inline-block;
+                line-height: 25px;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+ion-content.delivery-account-page-content {
+    --background: rgba(251, 246, 255, .3);
+    ion-card.delivery-account-page-empty-container {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 50%;
+        font-weight: bold;
+        text-align: center;
+        text-transform: capitalize;
+        width: 80%;
+        ion-card-content {
+            span.no-profile-content {
+                font-size: larger;
+            }
+        }
+    }
+    ion-card-header{
+        color: #101010;
+    }
+    ion-card-content{
+        background: transparent;
+        padding: 0;
+        ion-input{
+            height: 36px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            padding: 0 15px;
+            /* line-height: 36px; */
+            box-shadow: 0 0 26px rgba(0, 0, 0, .1);
+        }
+    }
+    ion-card.delivery-account-page-container {
+        color: var(--ion-color-app-custom);
+        padding: 8px;
+        --box-shadow: none;
+        box-shadow: none;
+        .item-inner{
+            padding: 0 !important;
+        }
+        ion-card-header {
+            ion-card-subtitle {
+                color: var(--ion-color-app-custom);
+                font-size: larger;
+                font-weight: 800;
+                width: 100%;
+            }
+        }
+        ion-list.delivery-account-details-section {
+            ion-list-header.account-profile-details-section-header {
+                color: var(--ion-background-color-dark-app-custom);
+                display: block;
+                font-family: "Poppins", sans-serif;
+                font-size: 16px;
+                padding-left: 12px;
+                margin-top: 12px;
+                text-align: center;
+            }
+            ion-row {
+                border-bottom-style: ridge;
+                border-bottom-width: 1px;
+                ion-col.details-section-label {
+                    ion-label {
+                        font-size: 15px;
+                        color: #6A6A6A;
+                        font-style: italic;;
+                    }
+                }
+                ion-col.details-section-value {
+                    ion-label {
+                        color: #111111;
+                        font-size: 16px;
+                    }
+                }
+            }
+            ion-row.details-section-last-row {
+                border-bottom: none;
+            }
+        }
+        ion-list.delivery-account-form-section {
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, .16);
+            form.delivery-account-form-container {
+                ion-list-header {
+                    color: var(--ion-background-color-dark-app-custom);
+                    display: block;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 16px;
+                    padding-left: 15px;
+                    padding-top: 10px;
+                    text-align: center;
+                }
+                ion-list-header.account-password-reset-section-header {
+                    margin-top: 15px;
+                }
+                ion-item.delivery-account-page-profile-picture-section {
+                    --border-width: 0;
+                    --inner-border-width: 0;
+                    ion-avatar {
+                        width: 100px;
+                        height: 100px;
+                        margin: 0 auto 15px auto;
+                        display: block;
+                        ion-button {
+                            --background: #000;
+                            --color: #fff;
+                            position: absolute;
+                            bottom: 14px;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            width: 36px;
+                            height: 36px;
+                            border: 1px solid #fff;
+                            border-radius: 18px;
+                            transform: translateX(-8px);
+                            --padding: 0;
+                            --padding-start: 0;
+                            --padding-end: 0;
+                        }
+                        button {
+                            --padding: 0;
+                            padding: 0;
+                        }
+                    }
+                }
+                ion-item.form-input-section {
+                    --border-width: 0;
+                    --inner-border-width: 0;
+                    padding-inline-end: 0;
+                    .item-inner{
+                        --padding: 0;
+                    }
+                    ion-label {
+                        color: #111111;
+                        margin-bottom: 10px;
+                        font-family: 'Poppins', sans-serif;
+                        --border-width: 0;
+                        --inner-border-width: 0;
+                    }
+                    ion-input.delivery-account-form-input-control {
+                        --padding: 0 15px;
+                        --padding-start:15px;
+                        --padding-end:15px;
+                    }
+                }
+                div.validation-errors {
+                    color: red;
+                    font-size: 15px;
+                    padding-top: 5px !important;
+                    padding-left: 15px;
+                    --border-width: 0;
+                    --inner-border-width: 0;
+                }
+                div.delivery-account-form-input-buttons-section {
+                    margin-top: 15px;
+                    padding: 0 10px 10px;
+                    ion-button {
+                        --background: var(--ion-background-color-app-custom);
+                        --border-radius: 20px;
+                        text-transform: capitalize;
+                        font-size: 14px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        width: 50%;
+                        height: 42px;
+                    }
+                }
+            }
+        }
+    }
+    ion-item.delivery-account-page-sign-out-section {
+        margin-top: 15px;
+        padding: 0 10px 10px;
+        ion-button {
+            --background: var(--ion-background-color-app-custom);
+            --border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            margin-left: 10%;
+            margin-right: 10%;
+            text-transform: capitalize;
+            width: 80%;
+        }
+    }
+}

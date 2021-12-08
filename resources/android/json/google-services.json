@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "167942438323",
+    "project_id": "mymobileapps",
+    "storage_bucket": "mymobileapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167942438323:android:62f52dad139e178a3f9fc6",
+        "android_client_info": {
+          "package_name": "com.goodbasket.driverapp.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167942438323-cemq9nbfbsv8r9a8p6k7ig6brb33dqr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaekdBRjQouuiWcBXmhIKdNt_AnYvLvFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167942438323-cemq9nbfbsv8r9a8p6k7ig6brb33dqr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

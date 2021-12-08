@@ -1,0 +1,230 @@
+ion-header.delivery-order-view-page-header {
+    ion-toolbar{
+        --background: var(--ion-background-color-app-custom);
+        ion-buttons {
+            ion-back-button {
+                color: #fff;
+            }
+            ion-menu-button {
+                color: #fff;
+            }
+        }
+        ion-title {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            img {
+                background-color: #fff;
+                display: inline-block;
+                height: 25px;
+                vertical-align: middle;
+                width: 25px;
+            }
+            span{
+                display: inline-block;
+                line-height: 25px;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+ion-content.delivery-order-view-page-content {
+    --background: rgba(251, 246, 255, .3);
+     ion-card {
+         --background: transparent;
+         box-shadow: none;
+         ion-card-content {
+             padding: 10px;
+             border-radius: 10px;
+         }
+     }
+    ion-card.delivery-order-view-page-empty-container {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 50%;
+        font-weight: bold;
+        text-align: center;
+        text-transform: capitalize;
+        width: 80%;
+        ion-card-content {
+            span.no-order-content {
+                font-size: larger;
+            }
+        }
+    }
+    ion-card.delivery-order-view-page-container {
+        ion-card-header {
+            ion-title {
+                font-size: 16px;
+            }
+            ion-card-subtitle {
+                color: #25003D;
+                font-size: large;
+                font-weight: normal;
+                padding: 5px;
+                text-align: center;
+                text-transform: uppercase;
+                width: 100%;
+                span.delivery-order-id-content {
+                    float: left;
+                    font-size: 14px;
+                }
+                div.delivery-order-status-content {
+                    float: right;
+                    font-size: 13px;
+                    text-align: right;
+                    span.delivery-status-value-section {
+                        font-size: 13px;
+                        background: #199a4d;
+                        color: #fff;
+                        padding: 5px 2px;
+                        border-radius: 5px;
+                        margin-left: 5px;
+                        img {
+                            display: inherit;
+                            margin-left: 5px;
+                            width: 7%;
+                        }
+                        span {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 12px;
+                            padding: 5px;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+        ion-card-content {
+            div.delivery-order-items-section {
+                margin-top: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .16);
+                padding: 5px;
+                border-radius: 10px;
+                background-color: #fff;
+                ion-row.delivery-items-list-headers {
+                    ion-col {
+                        color: #725B85;
+                        text-align: left;
+                    }
+                }
+            }
+            div.delivery-order-date-section {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .16);
+                margin-top: 20px;
+                padding: 5px;
+                ion-row {
+                    ion-col.date-section-label {
+                        ion-label {
+                            font-size: 12px;
+                            color: #6A6A6A;
+                        }
+                    }
+                    ion-col.date-section-value {
+                        ion-label {
+                            color: #111111;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            div.delivery-order-customer-section {
+                margin-top: 20px;
+                div.delivery-order-box {
+                    margin-top: 20px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .16);
+                    padding: 5px;
+                    border-radius: 10px;
+                    background-color: #fff;
+                    margin-top: 5px;
+                }
+                ion-row {
+                    ion-col.customer-section-label {
+                        ion-label {
+                            font-size: 12px;
+                            color: #6A6A6A;
+                        }
+                    }
+                    ion-col.customer-section-value {
+                        ion-label {
+                            color: #111111;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                ion-row.delivery-customer-title {
+                    ion-col {
+                        text-align: left;
+                        ion-label {
+                           color: #25003D;
+                           font-size: 14px;
+                           text-transform: capitalize;
+                        }
+                    }
+                }
+                ion-row.customer-contact-row {
+                    ion-col.customer-section-value {
+                        ion-label {
+                            padding-right: 15px;
+                        }
+                        ion-button {
+                             background: var(--ion-background-color-app-custom);
+                             border-radius: 20px;
+                             font-size: 14px;
+                             text-transform: capitalize;
+                             margin-top: -3px;
+                            ion-icon{
+                                color: #fff;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                ion-row.customer-dropoff-row {
+                    ion-col.customer-section-value {
+                        ion-button {
+                            background: var(--ion-background-color-app-custom);
+                            border-radius: 20px;
+                            font-size: 14px;
+                            text-transform: capitalize;
+                            ion-label {
+                                color: var(--ion-color-app-custom);
+                            }
+                        }
+                    }
+                }
+            }
+            div.delivery-order-action-section {
+                margin-top: 20px;
+                ion-row.order-action-delivery-out-row {
+                    ion-col.action-section-delivered-col {
+                        ion-button {
+                            background: var(--ion-background-color-app-custom);
+                            border-radius: 20px;
+                            font-size: 14px;
+                            text-transform: capitalize;
+                            ion-label {
+                                color: var(--ion-color-app-custom);
+                            }
+                        }
+                    }
+                    ion-col.action-section-canceled-col {
+                        ion-button {
+                            background: var(--ion-background-color-app-custom);
+                            border-radius: 20px;
+                            font-size: 14px;
+                            text-transform: capitalize;
+                            ion-label {
+                                color: var(--ion-color-app-custom);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

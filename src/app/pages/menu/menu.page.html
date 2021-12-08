@@ -1,0 +1,38 @@
+`<ion-split-pane contentId="main-content">
+
+  <ion-menu contentId="main-content" type="overlay">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <span>{{pageTitle}}</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          <ion-item (click)="menuItemClicked(p)" [class.active-item]="selectedPath === p.pageUrl">
+            <ion-icon slot="start" [name]="p.icon"></ion-icon>
+            <ion-label>
+              <span>{{p.title}}</span>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title>
+          <span>Version {{appVersion}}</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
+
+  </ion-menu>
+
+  <ion-router-outlet id="main-content" main></ion-router-outlet>
+
+</ion-split-pane>`

@@ -1,0 +1,52 @@
+`<ion-header>
+
+</ion-header>
+
+<ion-content class="delivery-login-page-content" fulscreen>
+
+  <ion-list class="delivery-login-form-section ion-padding" lines="full">
+
+    <form [formGroup]="loginForm" class="delivery-login-form-container">
+
+      <ion-label class="delivery-login-form-header-section">{{pageTitle}}</ion-label>
+      <ion-label class="delivery-login-form-header-sub-section">Login if you have already registered</ion-label>
+
+      <ion-item class="form-input-section">
+        <ion-input type="text" class="delivery-login-form-input-control" id="username" 
+        placeholder="Username" formControlName="username">
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.username">
+          <div class="error-message" *ngIf="loginForm.get('username').hasError(validation.type) &&
+            (loginForm.get('username').dirty || loginForm.get('username').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="form-input-section">
+        <ion-input type="password" class="delivery-login-form-input-control" id="password"
+        placeholder="Password" formControlName="password">
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) &&
+            (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="delivery-login-form-input-buttons-section ion-text-center">
+        <ion-button expand="block" type="submit" class="ion-no-margin" (click)="checkLogin()">
+          Login
+        </ion-button>
+      </div>
+
+    </form>
+
+  </ion-list>
+
+</ion-content>`

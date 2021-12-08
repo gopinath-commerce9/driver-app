@@ -1,0 +1,76 @@
+`<ion-header class="delivery-delivered-page-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img [src]="titlebarIcon">
+      <span>{{pageTitle}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="delivery-delivered-page-content" fullscreen>
+
+  <ion-card class="delivery-delivered-container">
+
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-icon name="car"></ion-icon>
+        {{pageTitle}}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-grid class="delivered-list-grid">
+
+        <ion-infinite-scroll #latestScroller threshold="7%" position="bottom" class="delivered-list-puller-top" (ionInfinite)="loadLatestData($event)">
+          <ion-infinite-scroll-content loadingSpinner="crescent" loadingText=""></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+        <div *ngIf="deliveredList.length > 0" class="delivered-list-section">
+
+          <ion-row *ngFor="let delivery of deliveredList">
+
+            <ion-col size="9" class="ion-text-start">
+              Order <span class="delivered-content-highlighter">{{getDeliveredNumber(delivery)}}</span> had been delivered to
+              <span class="delivered-content-highlighter">{{getDeliveredLocation(delivery)}}</span> on
+              <span class="delivered-content-highlighter">{{getDeliveredDate(delivery)}}</span>
+            </ion-col>
+            <ion-col size="3" class="ion-text-center delivered-action-column">
+              <ion-button size="small" type="button" class="ion-no-margin" (click)="viewDeliveredOrder(delivery)">
+                View
+              </ion-button>
+            </ion-col>
+
+          </ion-row>
+
+        </div>
+
+        <div *ngIf="deliveredList.length === 0" class="delivered-list-empty-section">
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <span>No Delivered-Orders found!</span>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </div>
+
+        <ion-infinite-scroll #olderScroller threshold="7%" position="top" class="delivered-list-puller-bottom" (ionInfinite)="loadOlderData($event)">
+          <ion-infinite-scroll-content loadingSpinner="crescent" loadingText=""></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </ion-grid>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>`

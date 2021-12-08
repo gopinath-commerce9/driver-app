@@ -1,0 +1,121 @@
+ion-header.delivery-delivered-page-header {
+    ion-toolbar{
+        --background: var(--ion-background-color-app-custom);
+        ion-buttons {
+            ion-back-button {
+                color: #fff;
+            }
+            ion-menu-button {
+                color: #fff;
+            }
+        }
+        ion-title {
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            img {
+                background-color: #fff;
+                display: inline-block;
+                height: 25px;
+                vertical-align: middle;
+                width: 25px;
+            }
+            span{
+                display: inline-block;
+                line-height: 25px;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+ion-content.delivery-delivered-page-content {
+    --background: rgba(251, 246, 255, .3);
+    ion-card.delivery-delivered-container {
+        --background: transparent;
+        /* box-shadow: none; */
+        margin-top: 15px;
+        ion-card-header {
+            padding: 10px;
+            ion-title {
+                font-size: 16px;
+            }
+            ion-card-subtitle {
+                color: #25003D;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 5px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+        ion-card-content {
+            padding: 0;
+            ion-grid.delivered-list-grid {
+                ion-infinite-scroll {
+                    height: 30px;
+                }
+                ion-infinite-scroll.delivered-list-puller-top {
+                    position: absolute;
+                }
+                div.delivered-list-section {
+                    ion-row {
+                        --background: #fff;
+                        margin-top: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, .16);
+                        padding: 5px;
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                        &:last-child {
+                            margin-top: 0;
+                        }
+                        ion-col {
+                            --color: #6A6A6A;
+                            span.delivered-content-highlighter {
+                                font-style: italic;
+                                font-weight: bold;
+                            }
+                        }
+                        ion-col.delivered-action-column {
+                            align-items: center;
+                            display: flex;
+                            justify-content: center;
+                            ion-button {
+                                --background: var(--ion-background-color-app-custom);
+                                --box-shadow: none;
+                                color: var(--ion-background-color-dark-app-custom);
+                                font-size: 12px;
+                                text-transform: none;
+                            }
+                        }
+                    }
+                }
+                div.delivered-list-empty-section {
+                    ion-row {
+                        ion-col {
+                            align-items: center;
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 45%;
+                            margin-bottom: 45%;
+                            text-align: center;
+                            span {
+                                font-family: 'Montserrat', sans-serif;
+                                font-size: 14px;
+                                font-weight: bold;
+                                padding-left: 20%;
+                                padding-right: 20%;
+                                text-align: center;
+                                white-space: normal;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

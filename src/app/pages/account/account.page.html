@@ -1,0 +1,182 @@
+`<ion-header class="delivery-account-page-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img [src]="titlebarIcon">
+      <span>{{pageTitle}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="delivery-account-page-content" fullscreen>
+
+  <ion-card class="delivery-account-page-container" *ngIf="((currentProfile !== undefined) && (currentProfile !== null))">
+
+    <ion-card-content>
+
+      <ion-list class="delivery-account-details-section">
+
+        <ion-list-header class="account-profile-details-section-header">Profile Info</ion-list-header>
+
+        <ion-row>
+          <ion-col size="3" class="ion-text-wrap ion-text-center details-section-label">
+            <ion-label>E-Mail</ion-label>
+          </ion-col>
+          <ion-col size="9" class="ion-text-wrap ion-text-start details-section-value">
+            <ion-label>{{getDeliveryBoyDetail(currentProfile, 'userEmail')}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="3" class="ion-text-wrap ion-text-center details-section-label">
+            <ion-label>Name</ion-label>
+          </ion-col>
+          <ion-col size="9" class="ion-text-wrap ion-text-start details-section-value">
+            <ion-label>{{getDeliveryBoyName(currentProfile)}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="details-section-last-row">
+          <ion-col size="3" class="ion-text-wrap ion-text-center details-section-label">
+            <ion-label>Contact</ion-label>
+          </ion-col>
+          <ion-col size="9" class="ion-text-wrap ion-text-start details-section-value">
+            <ion-label>{{getDeliveryBoyDetail(currentProfile, 'userContact')}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+      </ion-list>
+
+      <ion-list class="delivery-account-form-section">
+
+        <form [formGroup]="accountForm" class="delivery-account-form-container">
+
+          <ion-list-header class="account-profile-edit-section-header">Edit Your Profile</ion-list-header>
+
+          <ion-item class="delivery-account-page-profile-picture-section">
+            
+            <ion-avatar>
+              <img [src]="profilePic" />
+              <ion-button type="button" shape="round" fill="clear" class="ion-no-margin" *ngIf="accountFormEnabled"
+                (click)="processProfilePicture()">
+                <ion-icon name="camera"></ion-icon>
+              </ion-button>
+            </ion-avatar>
+            
+          </ion-item>
+
+          <ion-item class="form-input-section">
+            <ion-label position="stacked">Name<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text" class="delivery-account-form-input-control" id="firstName" placeholder="Name"
+              formControlName="firstName">
+            </ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.firstName">
+              <div class="error-message" *ngIf="accountForm.get('firstName').hasError(validation.type) &&
+            (accountForm.get('firstName').dirty || accountForm.get('firstName').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item class="form-input-section">
+            <ion-label position="stacked">Phone<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text" class="delivery-account-form-input-control" id="mobileNo" placeholder="Phone"
+              formControlName="mobileNo">
+            </ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.mobileNo">
+              <div class="error-message" *ngIf="accountForm.get('mobileNo').hasError(validation.type) &&
+            (accountForm.get('mobileNo').dirty || accountForm.get('mobileNo').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-list-header class="account-password-reset-section-header">Reset Your Password</ion-list-header>
+
+          <ion-item class="form-input-section">
+            <ion-label position="stacked">Current Password</ion-label>
+            <ion-input type="password" class="delivery-account-form-input-control" id="currentPassword"
+              placeholder="Current Password" formControlName="currentPassword">
+            </ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.currentPassword">
+              <div class="error-message" *ngIf="accountForm.get('currentPassword').hasError(validation.type) &&
+            (accountForm.get('currentPassword').dirty || accountForm.get('currentPassword').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item class="form-input-section">
+            <ion-label position="stacked">New Password</ion-label>
+            <ion-input type="password" class="delivery-account-form-input-control" id="newPassword"
+              placeholder="New Password" formControlName="newPassword">
+            </ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.newPassword">
+              <div class="error-message" *ngIf="accountForm.get('newPassword').hasError(validation.type) &&
+            (accountForm.get('newPassword').dirty || accountForm.get('newPassword').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item class="form-input-section">
+            <ion-label position="stacked">Confirm Password</ion-label>
+            <ion-input type="password" class="delivery-account-form-input-control" id="confirmPassword"
+              placeholder="Confirm Password" formControlName="confirmPassword">
+            </ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessages.confirmPassword">
+              <div class="error-message" *ngIf="accountForm.get('confirmPassword').hasError(validation.type) &&
+            (accountForm.get('confirmPassword').dirty || accountForm.get('confirmPassword').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="delivery-account-form-input-buttons-section ion-text-center">
+            <ion-button *ngIf="!accountFormEnabled" size="default" type="button" class="ion-no-margin" (click)="enableProfileForm()">
+              Edit
+            </ion-button>
+            <ion-button *ngIf="accountFormEnabled" size="small" type="button" class="ion-no-margin" (click)="updateProfile()">
+              Update
+            </ion-button>
+            <ion-button *ngIf="accountFormEnabled" size="small" type="button" class="ion-no-margin" (click)="resetProfile()">
+              Cancel
+            </ion-button>
+          </div>
+
+        </form>
+
+      </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-item class="delivery-account-page-sign-out-section ion-text-center" *ngIf="((currentProfile !== undefined) && (currentProfile !== null))">
+    <ion-button expand="block" size="default" type="button" class="ion-no-margin" (click)="signOut()">
+      Sign Out
+    </ion-button>
+  </ion-item>
+
+  <ion-card class="delivery-account-page-empty-container" *ngIf="((currentProfile === undefined) || (currentProfile === null))">
+    <ion-card-content>
+      <span class="ion-text-wrap ion-text-center no-profile-content">No details found on the requested Profile.</span>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>`

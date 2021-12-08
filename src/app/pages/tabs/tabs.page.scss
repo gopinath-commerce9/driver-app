@@ -1,0 +1,37 @@
+
+ion-tab-bar {
+    --background: var(--ion-background-color-dark-app-custom);
+    padding: 1px 0;
+    ion-tab-button {
+        --background: transparent;
+        --background-focused: var(--ion-background-color-app-custom);
+        ion-badge.cart-item-badge {
+          background: #fff;
+          border-radius: 50%;
+          color: var(--ion-background-color-app-custom);
+          font-family: 'Montserrat', sans-serif;
+          font-size: 11px;
+          font-weight: bold;
+          height: 22px;
+          line-height: 19px;
+          opacity: 0.9;
+          position: absolute;
+          right: 0.2rem;
+          top: 0.1rem;
+          width: 30%;
+        }
+        ion-icon{
+            font-size: 28px;
+            color: #fff;
+        }
+        ion-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+    }
+    ion-tab-button.tab-selected {
+        --background: var(--ion-background-color-app-custom);
+    }
+}

@@ -1,0 +1,11 @@
+`<ion-header>
+
+</ion-header>
+
+<ion-content no-bounce [scrollY]="false" [scrollX]="false">
+  <div class="splash-container">
+    <img [src]="splashImage">
+  </div>
+  <p class="app-title-section" [hidden]="(appTitle === '')">{{appTitle}}</p>
+  <p class="app-version-section" [hidden]="(appVersion === '')">Version {{appVersion}}</p>
+</ion-content>`

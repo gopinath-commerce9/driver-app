@@ -1,0 +1,53 @@
+.active-item {
+    border-left: 8px solid var(--ion-color-primary);
+}
+ion-split-pane {
+    ion-menu {
+        ion-header {
+            ion-toolbar {
+                --background: var(--ion-background-color-dark-app-custom);
+                ion-title {
+                    color: #fff;
+                    font-size: 16px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    span {
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                }
+            }
+        }
+        ion-content {
+            ion-list {
+                ion-menu-toggle {
+                    ion-item {
+                        ion-icon {
+                            color: var(--ion-background-color-dark-app-custom);
+                        }
+                        ion-label {
+                            span {
+                                color: var(--ion-background-color-dark-app-custom);
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ion-footer {
+            ion-toolbar {
+                --background: var(--ion-background-color-dark-app-custom);
+                ion-title {
+                    color: #b3b3b3;
+                    font-size: 12px;
+                    text-align: center;
+                    text-transform: none;
+                    span {
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                }
+            }
+        }
+    }
+}
