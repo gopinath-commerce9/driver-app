@@ -72,12 +72,12 @@ export class SplashPage implements OnInit {
     console.log('Setup App Called!!');
     this.delayerObj = setTimeout(() => {
       this.service.isDriverSignedIn().subscribe((result: boolean) => {
-        /* if (result) {
+        if (result) {
           const tabItems = this.tabService.getTabItems();
           this.navCtrl.navigateRoot(['menu', 'tabs', tabItems[0].tabUrl]);
         } else {
           this.navCtrl.navigateRoot(['login']);
-        } */
+        }
       });
     }, this.appDelayerTime);
   }
