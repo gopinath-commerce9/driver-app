@@ -2,7 +2,7 @@
 
 ### About this repo
 
-This repo is the code of an Ionic 5 Mobile App for Delivery drivers of GoodBasket.
+This repo is the code of an Ionic 5 Mobile App for Delivery drivers of GoodBasket FMS.
 
 ### Preconditions
 

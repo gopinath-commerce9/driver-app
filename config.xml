@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-packageName="com.goodbasket.driverapp.android" id="com.goodbasket.driverapp" ios-CFBundleIdentifier="com.goodbasket.driverapp.ios" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>DriverApp</name>
-    <description>Driver App for GoodBasket Delivery Personnels.</description>
+    <description>Driver App for GoodBasket Delivery Personnels for GoodBasket FMS.</description>
     <author email="help@goodbasket.com" href="https://goodbasket.com/">GoodBasket Team</author>
     <content src="index.html" />
     <access origin="*" />

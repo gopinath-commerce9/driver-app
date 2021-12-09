@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "GoodBasket Team",
   "homepage": "https://goodbasket.com/",
+  "description": "Driver App for GoodBasket Delivery Personnels for GoodBasket FMS.",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -108,7 +109,6 @@
     "typescript": "~4.2.4",
     "uk.co.workingedge.cordova.plugin.sqliteporter": "^1.1.1"
   },
-  "description": "An Ionic project",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
