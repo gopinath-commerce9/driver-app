@@ -227,8 +227,8 @@ export class OrderDetailsPage implements OnInit {
   getOrderDeliveredDate(order: any = null) {
     let orderDate = '';
     if ((order !== undefined) && (order !== null)) {
-      if (order.hasOwnProperty('deliveryDriverTime') && (order.deliveryDriverTime !== null) && (order.deliveryDriverTime !== '')) {
-        orderDate = this.displayFormattedTime(order.deliveryDriverTime);
+      if (order.hasOwnProperty('orderDeliveredTime') && (order.orderDeliveredTime !== null) && (order.orderDeliveredTime !== '')) {
+        orderDate = this.displayFormattedTime(order.orderDeliveredTime);
       } else if (order.hasOwnProperty('orderCanceledTime') && (order.orderCanceledTime !== null) && (order.orderCanceledTime !== '')) {
         orderDate = this.displayFormattedTime(order.orderCanceledTime);
       }

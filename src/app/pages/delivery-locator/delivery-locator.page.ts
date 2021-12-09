@@ -34,7 +34,8 @@ export class DeliveryLocatorPage implements OnInit {
   private sourcePageList: any;
   private currentOrder: any;
   private defaultLoadingMessage = 'Please wait...';
-  private dateDisplayFormat = 'ddd, D MMM YYYY, h:mm:ss A';private map: any;
+  private dateDisplayFormat = 'ddd, D MMM YYYY, h:mm:ss A';
+  private map: any;
   private currentLat: number;
   private currentLng: number;
   private currentLocation: any;
@@ -115,6 +116,7 @@ export class DeliveryLocatorPage implements OnInit {
             console.log('The Order Details : ', result);
             this.currentOrder = result;
             if ((result !== undefined) && (result !== null)) {
+
               this.currentOrderAddress = this.getCustomerAddress(result);
               if (this.currentOrderAddress.trim() === '') {
                 this.service.getSharedService().displayToast('Customer address is invalid!');
@@ -123,7 +125,6 @@ export class DeliveryLocatorPage implements OnInit {
                   orderId: result.recordId
                 }, backward: true});
               } else {
-
                 this.currentLat = this.service.getSharedService().getCurrentLatitude();
                 this.currentLng = this.service.getSharedService().getCurrentLongitude();
                 this.currentLocation = {
@@ -146,7 +147,7 @@ export class DeliveryLocatorPage implements OnInit {
 
                   }, (this.locationTrackingInterval * 1000));
                 }
-
+                loader.dismiss();
               }
 
             } else {
@@ -185,7 +186,6 @@ export class DeliveryLocatorPage implements OnInit {
 
   ionViewDidEnter() {
     console.log('DeliveryLocatorPage ionViewDidEnter');
-
   }
 
   ionViewWillLeave() {
@@ -251,6 +251,13 @@ export class DeliveryLocatorPage implements OnInit {
 
   startNavigating(customerAddress = '') {
 
+    if ((customerAddress === undefined) || (customerAddress == null) || (customerAddress.trim() === '')) {
+      this.service.getSharedService().displayToast('Customer address is invalid!');
+      this.events.gotoPage({page: this.sourcePageObj.page, params: {
+        orderId: this.currentOrder.recordId
+      }, backward: true});
+    }
+
     const originPoint = new google.maps.LatLng(
       this.currentLocation.latitude,
       this.currentLocation.longitude
@@ -264,15 +271,39 @@ export class DeliveryLocatorPage implements OnInit {
       if (status === google.maps.DirectionsStatus.OK) {
 
         this.directionsDisplay.setDirections(res);
-        /* this.showSteps(res); */
+        this.showSteps(res);
 
       } else {
         console.log(status);
-        let displayError = status;
-        if ((status !== undefined) && status.hasOwnProperty('message')) {
-          displayError = status.message;
+        const invalidMapRequestErrors = [
+          google.maps.DirectionsStatus.INVALID_REQUEST,
+          google.maps.DirectionsStatus.OVER_QUERY_LIMIT,
+          google.maps.DirectionsStatus.REQUEST_DENIED,
+          google.maps.DirectionsStatus.UNKNOWN_ERROR,
+        ];
+        const invalidAddressErrors = [
+          google.maps.DirectionsStatus.NOT_FOUND,
+          google.maps.DirectionsStatus.ZERO_RESULTS,
+        ];
+        const mapDirectionError = [
+          google.maps.DirectionsStatus.MAX_WAYPOINTS_EXCEEDED,
+          google.maps.DirectionsStatus.MAX_ROUTE_LENGTH_EXCEEDED,
+        ];
+        if (invalidMapRequestErrors.indexOf(status) >= 0) {
+          this.service.getSharedService().displayToast('Map is facing some serious problem. Try again later');
+          this.events.gotoPage({page: this.sourcePageObj.page, params: {
+            orderId: this.currentOrder.recordId
+          }, backward: true});
+        } else if (invalidAddressErrors.indexOf(status) >= 0) {
+          this.service.getSharedService().displayToast('Customer address not found!');
+          this.events.gotoPage({page: this.sourcePageObj.page, params: {
+            orderId: this.currentOrder.recordId
+          }, backward: true});
+        } else if (mapDirectionError.indexOf(status) >= 0) {
+          this.service.getSharedService().displayToast('Map is facing some restrictions.');
+        } else {
+          this.service.getSharedService().displayToast('Something went wrong.');
         }
-        this.service.getSharedService().displayToast(displayError);
       }
     });
   }
@@ -298,11 +329,13 @@ export class DeliveryLocatorPage implements OnInit {
   }
 
   isOrderSelector() {
-    return (this.sourcePage.trim().toLowerCase() === 'orderSelector'.trim().toLowerCase()) ? true : false;
+    /* return (this.sourcePage.trim().toLowerCase() === 'orderSelector'.trim().toLowerCase()) ? true : false; */
+    return false;
   }
 
   isOrderDelivery() {
-    return (this.sourcePage.trim().toLowerCase() === 'orderDelivery'.trim().toLowerCase()) ? true : false;
+    /* return (this.sourcePage.trim().toLowerCase() === 'orderDelivery'.trim().toLowerCase()) ? true : false; */
+    return false;
   }
 
   deliveredOrder(order: any) {

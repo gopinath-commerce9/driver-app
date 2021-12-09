@@ -40,7 +40,7 @@
           <ion-col size="3" class="ion-text-wrap ion-text-center">Qty</ion-col>
         </ion-row>
 
-        <ion-row *ngFor="let item of currentOrder.order_items">
+        <ion-row *ngFor="let item of currentOrder.orderItems">
           <ion-col size="9" class="ion-text-wrap ion-text-start">{{getItemName(item)}}</ion-col>
           <!-- <ion-col size="3" class="ion-text-wrap ion-text-center">{{item.uom}}</ion-col> -->
           <ion-col size="3" class="ion-text-wrap ion-text-center">{{getItemQty(item)}}</ion-col>

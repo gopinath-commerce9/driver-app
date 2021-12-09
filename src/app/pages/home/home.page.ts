@@ -318,7 +318,7 @@ export class HomePage implements OnInit {
 
   viewDelivery(delivery: any) {
     console.log('Clicked the Delivery : ', delivery);
-    this.events.gotoPage({page: 'order-details', params: {
+    this.events.gotoPage({page: 'order-delivery', params: {
       orderId: delivery.recordId
     }, backward: false});
   }
